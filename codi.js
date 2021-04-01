@@ -1,14 +1,30 @@
 //*** ENCAPSULAMENT ****/
 
 var capsula_rellotge_r0B = () => {
-    //alert('programa iniciat');
-    let busca_segon = document.getElementById("segon");
 
+    let contenidor = document.getElementById("contenidor");
 
-    setInterval(giraBusca, 1000);
+    //Crea busca segons
+    var busca_segon = document.createElement('div');
+    busca_segon.id = "segon";
+    busca_segon.className = "busca";
+    contenidor.appendChild(busca_segon);
 
+    //Crea busca minuts
+    var busca_minut = document.createElement('div');
+    busca_minut.id = "minut";
+    busca_minut.className = "busca";
+    contenidor.appendChild(busca_minut);
+    giraBuscaMinut(horaActual());
 
+    //Crea busca hores
+    var busca_hora = document.createElement('div');
+    busca_hora.id = "hora";
+    busca_hora.className = "busca";
+    contenidor.appendChild(busca_hora);
+    giraBuscaHora(horaActual());
 
+    setInterval(giraBuscaSegon, 1000);
 
     //TODO crear hora
     function horaActual() {
@@ -20,16 +36,34 @@ var capsula_rellotge_r0B = () => {
         return temps;
     }
 
-
-    //TODO Crear busca
-
-    //TODO girar busca
-    function giraBusca() {
+  
+    function giraBuscaSegon() {
         let hora = horaActual();
         //transforma segons a graus
         let graus = hora.segons * 6 + 180;
         busca_segon.style.transform = 'rotate(' + graus + 'deg)';
-        console.log(hora.segons + "''" + " | " + graus + "º");
+        if (hora.segons === 0){
+            giraBuscaMinut(hora);
+        }
+        
+    }
+
+   
+    function giraBuscaMinut(hora) {
+        //transforma minurs a graus
+        let graus = hora.minuts * 6 + 180;
+        busca_minut.style.transform = 'rotate(' + graus + 'deg)';
+        if (hora.minuts === 0){
+            giraBuscaHora(hora);
+        }
+        
+    }
+
+    function giraBuscaHora(hora) {
+        //transforma hores a graus
+        let graus = hora.hores * 30 + 180;
+        busca_hora.style.transform = 'rotate(' + graus + 'deg)';
+        
     }
 
 

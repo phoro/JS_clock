@@ -1,25 +1,30 @@
 body {
     background-color: black;
 }
+
 .busca {
-    border: 3px solid red;
-    border-radius: 4px;
+    border: 3px solid bisque;
     position: absolute;
     left: 50%;
     top: 50%;
     height: 120px;
     transform-origin: 0% 0%;
+    transition: 1s ease;
 }
 
 #segon {
-    border: 3px solid yellowgreen;
+    border: 2px solid yellowgreen;
     border-radius: 4px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
+    height: 150px;
+}
+
+#minut {
     height: 120px;
-    transition: 1s ease;
-    
+}
+
+#hora {
+    height: 80px;
+    border: 4px solid cadetblue;
 }
 
 #esfera {
@@ -27,8 +32,8 @@ body {
     border-radius: 4px;
     position: absolute;
     left: calc(50% - 200px);
-   top: calc(50% - 200px);
-   width: 400px;
-  height: 400px;
-    border-radius:40%;
+    top: calc(50% - 200px);
+    width: 400px;
+    height: 400px;
+    border-radius: 40%;
 }
