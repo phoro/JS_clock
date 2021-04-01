@@ -24,7 +24,7 @@ var capsula_rellotge_r0B = () => {
     contenidor.appendChild(busca_hora);
     giraBuscaHora(horaActual());
 
-    setInterval(giraBuscaSegon, 1000);
+    setInterval(giraBuscaSegon, 100);
 
     //TODO crear hora
     function horaActual() {
